@@ -1,0 +1,398 @@
+[
+  {
+    "sequence_id": 1062845222,
+    "participant_id": 4718,
+    "true_sign": "look",
+    "num_frames": 24,
+    "correct": false,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 6,
+        "predicted": "pen",
+        "confidence": 0.6223793625831604
+      },
+      {
+        "fraction": 0.5,
+        "frames": 12,
+        "predicted": "pen",
+        "confidence": 0.5499114394187927
+      },
+      {
+        "fraction": 0.75,
+        "frames": 18,
+        "predicted": "pen",
+        "confidence": 0.7247751355171204
+      },
+      {
+        "fraction": 1.0,
+        "frames": 24,
+        "predicted": "pen",
+        "confidence": 0.8383353352546692
+      }
+    ]
+  },
+  {
+    "sequence_id": 2604529615,
+    "participant_id": 36257,
+    "true_sign": "think",
+    "num_frames": 40,
+    "correct": false,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 10,
+        "predicted": "napkin",
+        "confidence": 0.5661934018135071
+      },
+      {
+        "fraction": 0.5,
+        "frames": 20,
+        "predicted": "napkin",
+        "confidence": 0.510601818561554
+      },
+      {
+        "fraction": 0.75,
+        "frames": 30,
+        "predicted": "lips",
+        "confidence": 0.34286725521087646
+      },
+      {
+        "fraction": 1.0,
+        "frames": 40,
+        "predicted": "sleepy",
+        "confidence": 0.3321579098701477
+      }
+    ]
+  },
+  {
+    "sequence_id": 580776904,
+    "participant_id": 28656,
+    "true_sign": "fireman",
+    "num_frames": 8,
+    "correct": true,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 2,
+        "predicted": "look",
+        "confidence": 0.4246339201927185
+      },
+      {
+        "fraction": 0.5,
+        "frames": 4,
+        "predicted": "look",
+        "confidence": 0.41971680521965027
+      },
+      {
+        "fraction": 0.75,
+        "frames": 6,
+        "predicted": "fireman",
+        "confidence": 0.4336833655834198
+      },
+      {
+        "fraction": 1.0,
+        "frames": 8,
+        "predicted": "fireman",
+        "confidence": 0.8025477528572083
+      }
+    ]
+  },
+  {
+    "sequence_id": 3108028368,
+    "participant_id": 36257,
+    "true_sign": "hear",
+    "num_frames": 64,
+    "correct": true,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 16,
+        "predicted": "pen",
+        "confidence": 0.48449429869651794
+      },
+      {
+        "fraction": 0.5,
+        "frames": 32,
+        "predicted": "pen",
+        "confidence": 0.9946804642677307
+      },
+      {
+        "fraction": 0.75,
+        "frames": 48,
+        "predicted": "pen",
+        "confidence": 0.9711959362030029
+      },
+      {
+        "fraction": 1.0,
+        "frames": 64,
+        "predicted": "hear",
+        "confidence": 0.5268628001213074
+      }
+    ]
+  },
+  {
+    "sequence_id": 1244000320,
+    "participant_id": 28656,
+    "true_sign": "donkey",
+    "num_frames": 58,
+    "correct": true,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 14,
+        "predicted": "who",
+        "confidence": 0.27667585015296936
+      },
+      {
+        "fraction": 0.5,
+        "frames": 29,
+        "predicted": "donkey",
+        "confidence": 0.7474247813224792
+      },
+      {
+        "fraction": 0.75,
+        "frames": 44,
+        "predicted": "donkey",
+        "confidence": 0.9738300442695618
+      },
+      {
+        "fraction": 1.0,
+        "frames": 58,
+        "predicted": "donkey",
+        "confidence": 0.9625680446624756
+      }
+    ]
+  },
+  {
+    "sequence_id": 3977120943,
+    "participant_id": 36257,
+    "true_sign": "cat",
+    "num_frames": 22,
+    "correct": false,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 6,
+        "predicted": "hear",
+        "confidence": 0.6027294993400574
+      },
+      {
+        "fraction": 0.5,
+        "frames": 11,
+        "predicted": "hear",
+        "confidence": 0.6948332190513611
+      },
+      {
+        "fraction": 0.75,
+        "frames": 16,
+        "predicted": "hear",
+        "confidence": 0.6920080184936523
+      },
+      {
+        "fraction": 1.0,
+        "frames": 22,
+        "predicted": "hear",
+        "confidence": 0.818596601486206
+      }
+    ]
+  },
+  {
+    "sequence_id": 4064648812,
+    "participant_id": 36257,
+    "true_sign": "cow",
+    "num_frames": 29,
+    "correct": true,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 7,
+        "predicted": "cow",
+        "confidence": 0.9680155515670776
+      },
+      {
+        "fraction": 0.5,
+        "frames": 14,
+        "predicted": "cow",
+        "confidence": 0.9853713512420654
+      },
+      {
+        "fraction": 0.75,
+        "frames": 22,
+        "predicted": "cow",
+        "confidence": 0.9892549514770508
+      },
+      {
+        "fraction": 1.0,
+        "frames": 29,
+        "predicted": "cow",
+        "confidence": 0.9897345304489136
+      }
+    ]
+  },
+  {
+    "sequence_id": 4162657200,
+    "participant_id": 4718,
+    "true_sign": "awake",
+    "num_frames": 13,
+    "correct": false,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 3,
+        "predicted": "pen",
+        "confidence": 0.22008760273456573
+      },
+      {
+        "fraction": 0.5,
+        "frames": 6,
+        "predicted": "toothbrush",
+        "confidence": 0.22059506177902222
+      },
+      {
+        "fraction": 0.75,
+        "frames": 10,
+        "predicted": "toothbrush",
+        "confidence": 0.4531159996986389
+      },
+      {
+        "fraction": 1.0,
+        "frames": 13,
+        "predicted": "toothbrush",
+        "confidence": 0.4492260217666626
+      }
+    ]
+  },
+  {
+    "sequence_id": 1830781383,
+    "participant_id": 4718,
+    "true_sign": "mouse",
+    "num_frames": 7,
+    "correct": false,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 2,
+        "predicted": "who",
+        "confidence": 0.11484779417514801
+      },
+      {
+        "fraction": 0.5,
+        "frames": 4,
+        "predicted": "shhh",
+        "confidence": 0.10400409996509552
+      },
+      {
+        "fraction": 0.75,
+        "frames": 5,
+        "predicted": "shhh",
+        "confidence": 0.10774259269237518
+      },
+      {
+        "fraction": 1.0,
+        "frames": 7,
+        "predicted": "shhh",
+        "confidence": 0.11740820854902267
+      }
+    ]
+  },
+  {
+    "sequence_id": 1460939073,
+    "participant_id": 36257,
+    "true_sign": "pretend",
+    "num_frames": 23,
+    "correct": false,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 6,
+        "predicted": "pretend",
+        "confidence": 0.3997500240802765
+      },
+      {
+        "fraction": 0.5,
+        "frames": 12,
+        "predicted": "fireman",
+        "confidence": 0.9362116456031799
+      },
+      {
+        "fraction": 0.75,
+        "frames": 17,
+        "predicted": "fireman",
+        "confidence": 0.9786310195922852
+      },
+      {
+        "fraction": 1.0,
+        "frames": 23,
+        "predicted": "fireman",
+        "confidence": 0.9866494536399841
+      }
+    ]
+  },
+  {
+    "sequence_id": 60571586,
+    "participant_id": 36257,
+    "true_sign": "uncle",
+    "num_frames": 13,
+    "correct": true,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 3,
+        "predicted": "uncle",
+        "confidence": 0.7767279744148254
+      },
+      {
+        "fraction": 0.5,
+        "frames": 6,
+        "predicted": "uncle",
+        "confidence": 0.33971017599105835
+      },
+      {
+        "fraction": 0.75,
+        "frames": 10,
+        "predicted": "uncle",
+        "confidence": 0.8906852602958679
+      },
+      {
+        "fraction": 1.0,
+        "frames": 13,
+        "predicted": "uncle",
+        "confidence": 0.7610793709754944
+      }
+    ]
+  },
+  {
+    "sequence_id": 1073109593,
+    "participant_id": 28656,
+    "true_sign": "bird",
+    "num_frames": 52,
+    "correct": false,
+    "stages": [
+      {
+        "fraction": 0.25,
+        "frames": 13,
+        "predicted": "make",
+        "confidence": 0.3615034222602844
+      },
+      {
+        "fraction": 0.5,
+        "frames": 26,
+        "predicted": "icecream",
+        "confidence": 0.574829638004303
+      },
+      {
+        "fraction": 0.75,
+        "frames": 39,
+        "predicted": "bird",
+        "confidence": 0.5261415839195251
+      },
+      {
+        "fraction": 1.0,
+        "frames": 52,
+        "predicted": "nuts",
+        "confidence": 0.575459897518158
+      }
+    ]
+  }
+]

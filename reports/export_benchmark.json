@@ -1,0 +1,74 @@
+{
+  "device": "cpu",
+  "default_threads": 10,
+  "runs": 800,
+  "measurements": {
+    "PyTorch@1": {
+      "mean_ms": 4.060071999992942,
+      "median_ms": 3.5565999569371343,
+      "p95_ms": 6.472799926996231,
+      "min_ms": 2.758400049060583,
+      "threads": 1,
+      "variant": "PyTorch"
+    },
+    "TorchScript@1": {
+      "mean_ms": 3.713529250526335,
+      "median_ms": 3.3680499182082713,
+      "p95_ms": 5.781900021247566,
+      "min_ms": 2.6134999934583902,
+      "threads": 1,
+      "variant": "TorchScript"
+    },
+    "PyTorch@2": {
+      "mean_ms": 3.7099821266019717,
+      "median_ms": 3.387149947229773,
+      "p95_ms": 5.303099984303117,
+      "min_ms": 2.8708999743685126,
+      "threads": 2,
+      "variant": "PyTorch"
+    },
+    "TorchScript@2": {
+      "mean_ms": 3.5326753760455176,
+      "median_ms": 3.222599974833429,
+      "p95_ms": 5.132299964316189,
+      "min_ms": 2.7088000206276774,
+      "threads": 2,
+      "variant": "TorchScript"
+    },
+    "PyTorch@4": {
+      "mean_ms": 4.934915625490248,
+      "median_ms": 4.1517000063322484,
+      "p95_ms": 9.442799957469106,
+      "min_ms": 2.979299984872341,
+      "threads": 4,
+      "variant": "PyTorch"
+    },
+    "TorchScript@4": {
+      "mean_ms": 4.829176001949236,
+      "median_ms": 3.9411999750882387,
+      "p95_ms": 9.192300029098988,
+      "min_ms": 2.8472000267356634,
+      "threads": 4,
+      "variant": "TorchScript"
+    },
+    "PyTorch@10": {
+      "mean_ms": 7.432132624380756,
+      "median_ms": 8.7778500164859,
+      "p95_ms": 10.644400026649237,
+      "min_ms": 3.2157000387087464,
+      "threads": 10,
+      "variant": "PyTorch"
+    },
+    "TorchScript@10": {
+      "mean_ms": 6.886800623033196,
+      "median_ms": 7.320949982386082,
+      "p95_ms": 10.069600073620677,
+      "min_ms": 3.0553999822586775,
+      "threads": 10,
+      "variant": "TorchScript"
+    }
+  },
+  "baseline": "PyTorch@10",
+  "best": "TorchScript@2",
+  "speedup_vs_baseline": 2.723841024339241
+}

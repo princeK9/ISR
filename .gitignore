@@ -1,0 +1,23 @@
+# Data & model artifacts
+data/
+models/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Kaggle credentials (never commit these)
+kaggle.json
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+x.md
