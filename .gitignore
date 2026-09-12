@@ -1,6 +1,8 @@
 # Data & model artifacts
-data/
-models/
+# Leading slashes anchor these to the repository root. Without them the patterns
+# match at every directory level, which also excluded the src/models/ package.
+/data/
+/models/
 
 # Python
 __pycache__/
@@ -20,4 +22,4 @@ kaggle.json
 .vscode/
 .idea/
 
-x.md
+preparation/
