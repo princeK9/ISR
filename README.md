@@ -3,8 +3,9 @@
 Classification of 30 isolated American Sign Language signs from MediaPipe Holistic landmark
 sequences, using the Kaggle [Google — Isolated Sign Language Recognition](https://www.kaggle.com/competitions/asl-signs)
 dataset (recorded through the PopSign ASL game). The dataset ships pre-extracted landmark
-coordinates rather than video, so this project starts at the landmark level: no video decoding
-or pose estimation is performed. The full dataset contains 94,477 sequences across 250 signs
+coordinates rather than video, so training and evaluation start at the landmark level and run no
+video decoding or pose estimation. (MediaPipe appears only in the live webcam demo, which has to
+produce landmarks itself.) The full dataset contains 94,477 sequences across 250 signs
 from 21 participants; this project uses the 30 most frequent signs (12,096 sequences, 12.8% of
 the data) to keep training tractable on CPU. Two architectures — a bidirectional GRU and a
 Transformer encoder — are trained under identical conditions and compared, and one feature
@@ -252,6 +253,53 @@ wrong. High confidence is not a usable reliability signal for this model.
 
 ---
 
+## Live webcam demo
+
+`src/webcam_demo.py` runs a trained checkpoint on a webcam or a video file. OpenCV captures
+frames, MediaPipe extracts hand and pose landmarks, a 64-frame sliding window is classified every
+5 frames, and the predicted sign and confidence are drawn on the feed.
+
+This is the only part of the project that runs MediaPipe. The dataset ships pre-extracted
+landmarks, so training and evaluation never touch it; the demo needs it because a live camera has
+no parquet file to read.
+
+**Preprocessing is the same code, not an equivalent reimplementation.** The demo imports
+`_hand_presence`, `_reference_points`, `_fill_missing` and `_pad_or_subsample` from
+`src/dataset.py` and calls them in the same order as `ASLLandmarkDataset.process_sequence`. Only
+one step differs, and it has to: the dense `(frames, 75, 3)` landmark array is assembled from
+MediaPipe output rather than decoded from parquet.
+
+`src/test_webcam_pipeline.py` verifies that claim rather than asserting it. It feeds identical
+synthetic landmarks through both paths — the training path via a generated parquet file, the live
+path via mock MediaPipe results — and asserts the resulting model inputs are **bit-identical**, for
+sequences both shorter and longer than `max_len`. It also covers the cases a camera produces that a
+dataset file never does: nothing detected at all, no pose and therefore no shoulder reference, a
+partially-filled window, and a single frame. The test needs no camera, no MediaPipe, and no dataset.
+
+**The classifier always returns something.** It is a closed-set 30-way softmax with no "none of
+these" class, so an empty frame is labelled as confidently as a real sign — testing on a synthetic
+video with nobody in it produced `icecream` at 84%. The demo therefore withholds predictions when
+no hand was detected anywhere in the window and shows `no hands detected` instead. `--allow-no-hands`
+disables that guard. This is the same calibration weakness described above, surfacing live.
+
+**Status: code-complete, never tested against a real signer.** The pipeline is verified end to end —
+including a full run on a synthetic video through real MediaPipe and the real checkpoint — but
+whether any sign is recognised correctly from a live camera is untested, because that needs hardware
+and someone who can sign. Expect live accuracy well below the 0.5285 test accuracy: a different
+camera, distance, framing, lighting and MediaPipe version are all distribution shift the model never
+saw, and the continuous sliding window does not match the pre-segmented clips it was trained on.
+
+See **[docs/MANUAL_TESTING.md](docs/MANUAL_TESTING.md)** for setup, Windows camera permissions, the
+30 supported signs, where to find reference clips, success criteria, and troubleshooting.
+
+```bash
+python -m src.webcam_demo                                      # default webcam
+python -m src.webcam_demo --source clip.mp4 --save out.mp4      # a recorded clip
+python -m src.test_webcam_pipeline                              # verify without a camera
+```
+
+---
+
 ## Methodology notes
 
 **Model selection used validation accuracy, never test.** The GRU was chosen because it scored
@@ -302,6 +350,11 @@ Re-running training reproduced epoch-1 metrics exactly (train loss 2.9181, val a
   real-time latency claim. True online decoding would require a unidirectional model.
 - **Frames are cached frames, not video frames.** Sequences longer than 64 frames were uniformly
   subsampled during preprocessing, so "50% of frames" refers to the normalized representation.
+- **The webcam demo has never been tested against a real signer.** Its preprocessing is verified
+  bit-identical to training and it runs end to end on synthetic video, but no sign has been
+  recognised from a live camera. Live accuracy is expected well below 0.5285: different camera,
+  framing, lighting and MediaPipe version are all distribution shift, and the continuous sliding
+  window does not match the pre-segmented clips the model was trained on.
 - **No hyperparameter search.** Defaults were chosen once and applied identically to both models
   for fairness. Neither is tuned.
 
@@ -367,6 +420,15 @@ python -m src.replay_demo --num-sequences 12 --animate 3
 python -m src.export_model
 ```
 
+Live webcam demo (needs a trained checkpoint; downloads a 13.7 MB MediaPipe bundle on first run):
+
+```bash
+# Verify the live preprocessing matches training - no camera or dataset needed
+python -m src.test_webcam_pipeline
+
+python -m src.webcam_demo
+```
+
 Face ablation (optional, ~15 minutes to cache and ~65 minutes to train):
 
 ```bash
@@ -393,9 +455,12 @@ src/
   evaluate.py                Test metrics, per-class report, confusion matrix
   replay_demo.py             Progressive-prefix inference and animations
   export_model.py            TorchScript export and latency benchmark
+  webcam_demo.py             Live inference from a webcam or video file
   test_dataset.py            Dataset smoke test
   test_models.py             Model smoke test, including the padding-leak assertion
+  test_webcam_pipeline.py    Asserts live preprocessing is bit-identical to training
 notebooks/eda.ipynb          Exploratory data analysis
+docs/MANUAL_TESTING.md       How to test the webcam demo with a real signer
 reports/figures/             Training curves, confusion matrices, replay GIFs
 data/, models/               Gitignored
 ```
